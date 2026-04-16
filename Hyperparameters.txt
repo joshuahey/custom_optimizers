@@ -4,9 +4,10 @@
 # and the default parameters, which do not need much adjustment.
 # That said, tuning even the default parameters can still affect the time to reach
 # a given tolerance and the total number of iterations. From experiments, DG-delta and SIDG
-# perform the best in terms of the above metrics.
+# perform the best in terms of the above metrics. 
 
-
+# For the SIDG methods, there are a bunch of safeguards that could be done as we use
+# an LBFGS approximation. However, I didn't have time to experiment. 
 
 
 
