@@ -175,7 +175,7 @@ class DG_Delta(Optimizer):
         theta_{k+1} = theta_k + (h/2)(omega_k + omega_{k+1}) - h delta gbar
     """
 
-    def __init__(self, params, h=5e-2, gamma=0.9, delta=1e-4, fp_iters=2, avf_samples=1, fp_tol=1e-2):
+    def __init__(self, params, h=5e-2, gamma=0.5, delta=1e-4, fp_iters=2, avf_samples=1, fp_tol=1e-2):
         super().__init__(
             params,
             dict(
