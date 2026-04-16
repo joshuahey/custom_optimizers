@@ -8,7 +8,7 @@
 #     Step size. 
 #     Larger h may speed things up, but if it is too large, the fixed-point iteration may become unstable or fail to converge.
 #
-# gamma : float (typical choice is from 0.5 - 0.9)
+# gamma : float (default choices 0.5 - 0.9)
 #     Damping parameter (classical momentum damping constant)
 #     
 
@@ -17,20 +17,31 @@
 #     Extra gradient damping in the theta update.
 #     If it is too large, it may slow convergence.
 #
-# fp_iters : int (typical choice is from 1 - 3)
+# fp_iters : int (default choices 1 - 3)
 #     Maximum number of fixed-point iterations used to approximate theta_{k+1}.
 #     Since DG and DG-Delta are implicit methods, theta_{k+1} is obtained by
 #     solving a fixed-point equation.
 #
-# avf_samples : int (typical choice is either 1 or 2)
+# avf_samples : int (default choices 1 or 2)
 #     Number of quadrature samples used to approximate the AVF discrete gradient
 #
 #         gbar = ∫_0^1 ∇L((1-s) theta_k + s theta_{k+1}) ds.
 #
 #     Larger values give a more accurate approximation, but cost increases.
 #
-# fp_tol : float (typical choice is from 1e-2 -  1e-4)
+# fp_tol : float (default choices 1e-1 -  1e-3)
 #     Tolerance for early stopping of the fixed-point iteration.
 #     If successive fixed-point iterates are close enough, the inner solve stops
 #     early. Smaller fp_tol gives a more accurate inner solve, but costs more.
+
+
+
+
+
+
+
+
+
+
+
 #
