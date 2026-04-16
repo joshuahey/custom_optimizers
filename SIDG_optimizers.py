@@ -247,7 +247,7 @@ class _SIDGBase(Optimizer):
 # SIDG 
 # ============================================================
 
-class SIDG_InvH(_SIDGBase):
+class SIDG(_SIDGBase):
     """
     Semi-Implicit Discrete Gradient (SIDG) method using an inverse-Hessian
     approximation H_k through an operator L-BFGS representation.
@@ -256,12 +256,12 @@ class SIDG_InvH(_SIDGBase):
     def __init__(self,
                  params,
                  h: float = 1e-1,
-                 gamma: float = 0.5,
+                 gamma: float = 0.9,
                  history_size: int = 10,
                  init_H_scale: float = 1.0,
                  cg_tol: float = 1e-6,
                  cg_max_iter: int = 25,
-                 curvature_eps: float = 1e-10):
+                 curvature_eps: float = 1e-8):
         defaults = dict(
             h=h,
             gamma=gamma,
@@ -361,7 +361,7 @@ class SIDG_InvH(_SIDGBase):
 # SIDG-Delta 
 # ============================================================
 
-class SIDG_Delta_InvH(_SIDGBase):
+class SIDG_Delta(_SIDGBase):
     """
     Semi-Implicit Discrete Gradient with additional damping delta.
     """
@@ -375,7 +375,7 @@ class SIDG_Delta_InvH(_SIDGBase):
                  init_H_scale: float = 1.0,
                  cg_tol: float = 1e-6,
                  cg_max_iter: int = 25,
-                 curvature_eps: float = 1e-10):
+                 curvature_eps: float = 1e-8):
         defaults = dict(
             h=h,
             gamma=gamma,
