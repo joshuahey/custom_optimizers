@@ -67,7 +67,7 @@
 # init_H_scale : float (default = 1.0)
 #     Initial matrix scaling when no curvature information is present.
 #
-# cg_tol : float  (default = 1e-5)
+# cg_tol : float  (default choices 1e-6)
 #     Tolerance for the conjugate-gradient inner solve.
 #     Smaller values give a more accurate inner solve, but cost more.
 #
