@@ -1,3 +1,24 @@
+# These choices have generally worked well across most of the problems I tested.
+# However, many problems still require hyperparameter tuning.
+# Below, I distinguish between the main parameters, which require tuning,
+# and the default parameters, which do not need much adjustment.
+# That said, tuning even the default parameters can still affect the time to reach
+# a given tolerance and the total number of iterations. From experiments, DG-delta and SIDG
+# perform the best in terms of the above metrics.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # ============================================================
 # DG / DG-Delta hyperparameters
 # ============================================================
@@ -76,7 +97,6 @@
 # curvature_eps : float (default = 1e-8)
 #     Curvature threshold used when deciding whether to accept an L-BFGS pair.
 #     Pairs with very small or nonpositive curvature are discarded.
-
 
 
 
