@@ -4,19 +4,22 @@
 #
 # Main parameters
 # ---------------
-# h : float
+# h : float, needs tuning 
 #     Step size. 
 #     Larger h may speed things up, but if it is too large, the fixed-point iteration may become unstable or fail to converge.
 #
-# gamma : float (default choices 0.5 - 0.9)
+# gamma : float (default choices 0.5 - 0.9, for DG
+#               (default choices 0.1 - 0.5, for DG - delta)
 #     Damping parameter (classical momentum damping constant)
 #     
-
-#
-# delta : float   (DG_Delta only)
+# delta : float, needs tuning   (DG_Delta only) 
 #     Extra gradient damping in the theta update.
 #     If it is too large, it may slow convergence.
-#
+#     Small positive values are usually used.
+# 
+# 
+# Default parameters
+# ---------------
 # fp_iters : int (default choices 1 - 3)
 #     Maximum number of fixed-point iterations used to approximate theta_{k+1}.
 #     Since DG and DG-Delta are implicit methods, theta_{k+1} is obtained by
@@ -36,12 +39,50 @@
 
 
 
-
-
-
-
-
-
-
-
+# ============================================================
+# SIDG / SIDG-Delta hyperparameters
+# ============================================================
 #
+# Main parameters: 
+# ---------------
+# h : float, needs tuning 
+#     Step size.
+#     Larger values may accelerate convergence, but if chosen too large, they can reduce the stability of the semi-implicit update.
+#
+# gamma : float (default choices 0.5 - 0.9, for SIDG
+#               (default choices 0.1 - 0.5, for SIDG - delta)
+#     Damping parameter (classical momentum damping constant)
+#
+# delta : float, needs tuning  (SIDG_Delta only)
+#     Additional damping parameter in the theta-update.
+#     Small positive values are usually used. 
+#
+# history_size : int, needs tuning 
+#     Number of L-BFGS curvature pairs stored.
+#     Larger values may improve the inverse-Hessian approximation, but increase memory.
+#
+# 
+# Default parameters
+# ---------------
+# init_H_scale : float (default = 1.0)
+#     Initial matrix scaling when no curvature information is present.
+#
+# cg_tol : float  (default = 1e-5)
+#     Tolerance for the conjugate-gradient inner solve.
+#     Smaller values give a more accurate inner solve, but cost more.
+#
+# cg_max_iter : int (default choices 5 or 20)
+#     Maximum number of CG iterations for the inner linear solves.
+#
+# curvature_eps : float (default = 1e-8)
+#     Curvature threshold used when deciding whether to accept an L-BFGS pair.
+#     Pairs with very small or nonpositive curvature are discarded.
+
+
+
+
+
+
+
+
+
