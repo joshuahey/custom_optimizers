@@ -61,7 +61,9 @@
 #     Number of L-BFGS curvature pairs stored.
 #     Larger values may improve the inverse-Hessian approximation, but increase memory.
 #
-# 
+# cg_max_iter : int (default choices 5 or 25)
+#     Maximum number of CG iterations for the inner linear solves.
+
 # Default parameters
 # ---------------
 # init_H_scale : float (default = 1.0)
@@ -70,9 +72,6 @@
 # cg_tol : float  (default choices 1e-6)
 #     Tolerance for the conjugate-gradient inner solve.
 #     Smaller values give a more accurate inner solve, but cost more.
-#
-# cg_max_iter : int (default choices 5 or 20)
-#     Maximum number of CG iterations for the inner linear solves.
 #
 # curvature_eps : float (default = 1e-8)
 #     Curvature threshold used when deciding whether to accept an L-BFGS pair.
